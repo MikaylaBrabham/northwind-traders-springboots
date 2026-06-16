@@ -1,0 +1,8 @@
+package com.pluralsight.northwind_traders_springboot.repository;
+
+// copied from erics273 category repo
+import com.pluralsight.northwind_traders_springboot.model.Category;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CategoryRepository extends JpaRepository<Category, Integer>{
+}

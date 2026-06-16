@@ -1,18 +1,66 @@
 package com.pluralsight.northwind_traders_springboot.model;
 
 //need to add to model
+//citations: erics273 git
 
+
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "products")
+@Table(name = "Products")
+@JsonPropertyOrder({
+        "productId",
+        "name",
+        "UnitPrice",
+        "category"
+})
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ProductID")
+    private int productId;
 
-    private Integer productId;
+    @Column(name = "ProductName")
     private String name;
-    private String category;
-    private Double price;
+
+    @Column(name = "UnitPrice")
+    private double price;
+
+    @ManyToOne
+    @JoinColumn(name = "CategoryID")
+    private Category category;
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
