@@ -10,4 +10,5 @@ public class NorthwindTradersSpringbootApplication {
 		SpringApplication.run(NorthwindTradersSpringbootApplication.class, args);
 	}
 
+
 }
